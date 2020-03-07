@@ -6,11 +6,10 @@ package hash
 
 import (
 	"bytes"
-	"crypto/sha1"
 	"errors"
 
+	"bitbucket.org/leonardoce/idcrypt/internal/keygen"
 	"bitbucket.org/leonardoce/idcrypt/internal/utils"
-	"golang.org/x/crypto/pbkdf2"
 )
 
 const (
@@ -25,16 +24,16 @@ var (
 	ErrorInvalidHash = errors.New("invalid hash")
 )
 
-// Hash one-way crypt the proposed data, returning it encrypted. 'Check' can
+// Crypt one-way crypt the proposed data, returning it encrypted. 'Check' can
 // then be used to verify if the hash is correct or not. The first section of
 // the output bytes are the salt, the other one is the encrypted data
-func Hash(data []byte) ([]byte, error) {
+func Crypt(data []byte) ([]byte, error) {
 	salt, err := utils.GenerateSalt(saltLen)
 	if err != nil {
 		return nil, err
 	}
 
-	key := pbkdf2.Key([]byte(data), salt, pbkdf2Iterations, pbkdf2KeyLen, sha1.New)
+	key := keygen.GenerateKey([]byte(data), pbkdf2KeyLen, salt)
 
 	result := make([]byte, saltLen+pbkdf2KeyLen)
 	copy(result, salt)
@@ -51,6 +50,6 @@ func Check(data []byte, hash []byte) (bool, error) {
 
 	salt := hash[:saltLen]
 	key := hash[saltLen:]
-	providedKey := pbkdf2.Key([]byte(data), salt, pbkdf2Iterations, pbkdf2KeyLen, sha1.New)
+	providedKey := keygen.GenerateKey([]byte(data), pbkdf2KeyLen, salt)
 	return bytes.Equal(key, providedKey), nil
 }

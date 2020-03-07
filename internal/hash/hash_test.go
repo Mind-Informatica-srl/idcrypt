@@ -9,8 +9,8 @@ var (
 	testPasswordHash = []byte{189, 61, 179, 116, 137, 178, 104, 10, 155, 70, 95, 127, 69, 82, 248, 150, 248, 6, 183, 215, 234, 0, 9, 62, 61, 111, 226, 197, 22, 157, 105, 59, 1, 114, 129, 203, 216, 55, 193, 169, 156, 65, 239, 81, 170, 112, 142, 140}
 )
 
-func TestHash(t *testing.T) {
-	hash, err := Hash(testPassword)
+func TestCrypt(t *testing.T) {
+	hash, err := Crypt(testPassword)
 	if err != nil {
 		t.Error(err)
 	}
@@ -54,8 +54,8 @@ func TestValidHash(t *testing.T) {
 	}
 }
 
-func TestHashCheck(t *testing.T) {
-	hash, err := Hash(testPassword)
+func TestCryptCheck(t *testing.T) {
+	hash, err := Crypt(testPassword)
 	if err != nil {
 		t.Error(err)
 	}
@@ -74,9 +74,9 @@ func TestHashCheck(t *testing.T) {
 	}
 }
 
-func BenchmarkHash(b *testing.B) {
+func BenchmarkCrypt(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		Hash(testPassword)
+		Crypt(testPassword)
 	}
 }
 

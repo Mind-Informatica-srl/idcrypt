@@ -1,5 +1,5 @@
 /*
-Package crypto implements a symmetric encryption scheme to be used by the
+Package cryptico implements a symmetric encryption scheme to be used by the
 engine.
 
 The algorithm used is AES-256, and for this reason we need a 32 bit key length
@@ -15,7 +15,7 @@ IMPORTANT: this package don't implement any soft of HMAC-based message signing,
 meaning that if the key is not correct, your decoded text simply will not be
 correct. No error detected in that case.
 */
-package crypto
+package cryptico
 
 import (
 	"crypto/aes"
