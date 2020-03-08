@@ -19,6 +19,20 @@ following library:
 
 - Go 1.14 of newer
 
+## Unit tests and benchmarks
+
+You can run the unit tests with:
+
+```
+make test
+```
+
+and benchmarks with:
+
+```
+make benchmark
+```
+
 ## Security of the engine
 
 This system is secure as the passwords choosen by users are, since the master
@@ -130,3 +144,30 @@ the authentiation on a mobile phone App such as Authy.
 is valid or not.
 
 The code in `cmd/otp/main.go` can be used as a further reference.
+
+## JWT
+
+If you are creating sessions for your users, those sessions could be interpreted
+as temporary credentials for the crypto space. A session can be created using
+the master key decoded for a certain user. Then:
+
+- the username and the password could be sent to the user in a JWT token;
+- the username can be stored in the server database.
+
+JWT tokens as implemented by this package are signed with an RSA encryption
+scheme. This means that a key pair is needed on the server to successfully
+generate tokens.
+
+To generate a key pair you can use the following commands:
+
+```
+$ openssl genrsa -out signing.key 4096
+$ openssl rsa -in signing.key -pubout -outform PEM -out signing.pub
+```
+
+The JWT subsystem can be created with the function named `CreateEngine` in
+`bitbucket.org/leonardoce/idcrypt/pkg/jwt`. You will need the key pair and also
+to choose a token duration.
+
+Tokens can be generated via `CreateJWT` and decoded and validated via
+`ParseJWT`.

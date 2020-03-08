@@ -9,5 +9,5 @@ pipelines:
           - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C "${PACKAGE_PATH}"
           - cd "${PACKAGE_PATH}"
           - go mod download
-          - $(go env GOPATH)/bin/golangci-lint run
-          - go test -v ./...
+          - make lint
+          - make test
