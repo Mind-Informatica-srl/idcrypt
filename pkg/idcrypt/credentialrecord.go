@@ -1,8 +1,8 @@
 /*
-Package models implement the models for the data needed by the
+Package idcrypt implement the models for the data needed by the
 encryption/decryption engine.
 */
-package models
+package idcrypt
 
 import (
 	"encoding/hex"

@@ -1,4 +1,4 @@
-package models
+package idcrypt
 
 import "bitbucket.org/leonardoce/idcrypt/internal/cryptico"
 

@@ -1,4 +1,4 @@
-package models
+package idcrypt
 
 import (
 	"bytes"
