@@ -17,5 +17,5 @@ func GenerateSalt(len int) ([]byte, error) {
 		return nil, err
 	}
 
-	return salt[:], nil
+	return salt, nil
 }

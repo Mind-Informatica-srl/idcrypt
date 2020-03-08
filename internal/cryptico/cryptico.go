@@ -41,7 +41,7 @@ func Encrypt(data []byte, key []byte) ([]byte, error) {
 	}
 
 	cfb := cipher.NewCFBEncrypter(block, iv)
-	cfb.XORKeyStream(cipherText[aes.BlockSize:], []byte(data))
+	cfb.XORKeyStream(cipherText[aes.BlockSize:], data)
 	return cipherText, nil
 }
 

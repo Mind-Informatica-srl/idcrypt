@@ -13,9 +13,8 @@ import (
 )
 
 const (
-	pbkdf2Iterations = 4096
-	pbkdf2KeyLen     = 32
-	saltLen          = 16
+	pbkdf2KeyLen = 32
+	saltLen      = 16
 )
 
 var (
@@ -33,7 +32,7 @@ func Crypt(data []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	key := keygen.GenerateKey([]byte(data), pbkdf2KeyLen, salt)
+	key := keygen.GenerateKey(data, pbkdf2KeyLen, salt)
 
 	result := make([]byte, saltLen+pbkdf2KeyLen)
 	copy(result, salt)
@@ -50,6 +49,6 @@ func Check(data []byte, hash []byte) (bool, error) {
 
 	salt := hash[:saltLen]
 	key := hash[saltLen:]
-	providedKey := keygen.GenerateKey([]byte(data), pbkdf2KeyLen, salt)
+	providedKey := keygen.GenerateKey(data, pbkdf2KeyLen, salt)
 	return bytes.Equal(key, providedKey), nil
 }

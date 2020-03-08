@@ -53,7 +53,7 @@ func NewCredentialRecord(password string, masterKey []byte) (*CredentialRecord, 
 		return nil, fmt.Errorf("NewCredentialRecord: %v", err)
 	}
 
-	encryptedMasterKey, err := cryptico.Encrypt([]byte(masterKey), sessionKey)
+	encryptedMasterKey, err := cryptico.Encrypt(masterKey, sessionKey)
 	if err != nil {
 		return nil, fmt.Errorf("NewCredentialRecord: %v", err)
 	}

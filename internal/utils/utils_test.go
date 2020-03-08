@@ -16,6 +16,6 @@ func TestGenerateSalt(t *testing.T) {
 
 func BenchmarkGenerateSalt256(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		GenerateSalt(256)
+		_, _ = GenerateSalt(256)
 	}
 }
