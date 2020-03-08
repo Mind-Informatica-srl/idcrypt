@@ -1,6 +1,6 @@
 /*
 Package keygen implement a key generator feature, basing it on the
-PBKDF2 scheme using SHA1 hash function
+PBKDF2 scheme using SHA256 hash function
 */
 package keygen
 
