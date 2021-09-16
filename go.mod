@@ -1,4 +1,4 @@
-module bitbucket.org/leonardoce/idcrypt
+module github.com/Mind-Informatica-srl/idcrypt
 
 go 1.14
 
