@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"bitbucket.org/leonardoce/idcrypt/pkg/otp"
+	"github.com/Mind-Informatica-srl/idcrypt/pkg/otp"
 )
 
 var (

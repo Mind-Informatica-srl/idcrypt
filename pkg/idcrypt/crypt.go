@@ -1,6 +1,6 @@
 package idcrypt
 
-import "bitbucket.org/leonardoce/idcrypt/internal/cryptico"
+import "github.com/Mind-Informatica-srl/idcrypt/internal/cryptico"
 
 // Encrypt encrypts data via a master key
 func Encrypt(data []byte, masterKey []byte) ([]byte, error) {

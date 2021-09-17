@@ -3,7 +3,7 @@ package keygen
 import (
 	"testing"
 
-	"bitbucket.org/leonardoce/idcrypt/internal/utils"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/utils"
 )
 
 func TestGenerateKey(t *testing.T) {

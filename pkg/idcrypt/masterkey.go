@@ -1,6 +1,6 @@
 package idcrypt
 
-import "bitbucket.org/leonardoce/idcrypt/internal/utils"
+import "github.com/Mind-Informatica-srl/idcrypt/internal/utils"
 
 // GenerateMasterKey create a new crypto space.
 func GenerateMasterKey() ([]byte, error) {

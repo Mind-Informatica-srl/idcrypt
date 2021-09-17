@@ -8,10 +8,10 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"bitbucket.org/leonardoce/idcrypt/internal/cryptico"
-	"bitbucket.org/leonardoce/idcrypt/internal/hash"
-	"bitbucket.org/leonardoce/idcrypt/internal/keygen"
-	"bitbucket.org/leonardoce/idcrypt/internal/utils"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/cryptico"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/hash"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/keygen"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/utils"
 )
 
 /*

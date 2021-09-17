@@ -8,8 +8,8 @@ import (
 	"bytes"
 	"errors"
 
-	"bitbucket.org/leonardoce/idcrypt/internal/keygen"
-	"bitbucket.org/leonardoce/idcrypt/internal/utils"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/keygen"
+	"github.com/Mind-Informatica-srl/idcrypt/internal/utils"
 )
 
 const (
